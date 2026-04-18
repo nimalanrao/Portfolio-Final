@@ -121,25 +121,21 @@ export default function SectionExpertise() {
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ y: -10, scale: 1.02, rotateX: 5, rotateY: 5 }}
-                    transition={{ duration: 0.8, delay: i * 0.1, type: "spring", stiffness: 300, damping: 20 }}
+                    transition={{ duration: 0.8, delay: i * 0.1 }}
                     viewport={{ once: true }}
-                    className="liquid-glass p-8 rounded-[2rem] flex flex-col h-full group transition-colors duration-500 hover:shadow-[0_0_40px_rgba(222,219,200,0.15)] relative overflow-hidden bg-gradient-to-br from-transparent to-transparent hover:from-primary/5 hover:to-transparent"
+                    className="liquid-glass p-8 rounded-[2rem] flex flex-col h-full group transition-colors duration-500 relative overflow-hidden bg-gradient-to-br from-transparent to-transparent hover:from-primary/5 hover:to-transparent"
                   >
-                    {/* Subtle Torch effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(222,219,200,0.08)_0%,transparent_70%)]" />
-
                     <div className="space-y-6 relative z-10">
-                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-125 group-hover:-translate-y-2 group-hover:rotate-12 transition-all duration-500 group-hover:bg-primary group-hover:text-black">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-all duration-500 group-hover:bg-primary group-hover:text-black">
                         {service.icon}
                       </div>
                       <div className="space-y-3">
-                        <h3 className="text-xl font-medium text-primary-cream group-hover:translate-x-1 transition-transform duration-500">{service.title}</h3>
+                        <h3 className="text-xl font-medium text-primary-cream">{service.title}</h3>
                         <p className="text-gray-400 text-sm leading-relaxed">{service.description}</p>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {service.tools.map(tool => (
-                          <span key={tool} className="text-[9px] text-primary/60 border border-primary/20 px-2 py-1 rounded-full uppercase tracking-wider group-hover:border-primary/60 group-hover:text-primary transition-colors duration-500">
+                          <span key={tool} className="text-[9px] text-primary/60 border border-primary/20 px-2 py-1 rounded-full uppercase tracking-wider group-hover:text-primary transition-colors duration-500">
                             {tool}
                           </span>
                         ))}
@@ -179,19 +175,15 @@ export default function SectionExpertise() {
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ y: -10, scale: 1.02, rotateX: 5, rotateY: -5 }}
-                    transition={{ duration: 0.8, delay: i * 0.1, type: "spring", stiffness: 300, damping: 20 }}
+                    transition={{ duration: 0.8, delay: i * 0.1 }}
                     viewport={{ once: true }}
-                    className="liquid-glass p-8 rounded-[2rem] space-y-8 group hover:shadow-[0_0_40px_rgba(222,219,200,0.15)] relative overflow-hidden bg-gradient-to-br from-transparent to-transparent hover:from-primary/5 hover:to-transparent"
+                    className="liquid-glass p-8 rounded-[2rem] space-y-8 group relative overflow-hidden bg-gradient-to-br from-transparent to-transparent hover:from-primary/5 hover:to-transparent"
                   >
-                    {/* Subtle Torch effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(222,219,200,0.08)_0%,transparent_70%)]" />
-                    
                     <div className="space-y-6 relative z-10">
-                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-125 group-hover:-translate-y-2 group-hover:-rotate-12 transition-all duration-500 group-hover:bg-primary group-hover:text-black">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-all duration-500 group-hover:bg-primary group-hover:text-black">
                         {cat.icon}
                       </div>
-                      <h3 className="text-xl font-medium text-primary-cream flex items-center gap-3 group-hover:translate-x-1 transition-transform duration-500">
+                      <h3 className="text-xl font-medium text-primary-cream flex items-center gap-3">
                         {cat.title}
                       </h3>
                     </div>
