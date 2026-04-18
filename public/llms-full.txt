@@ -1,0 +1,30 @@
+# Nithyanantha Portfolio - Full Project Breakdown
+
+This project is a premium digital portfolio built with React and Vite. It emphasizes smooth, physics-driven interactions and a refined "liquid glass" visual style.
+
+## Architecture
+
+### Components (`src/components/`)
+- **Navbar**: Floating glass navbar with responsive mobile menu.
+- **SectionHero**: High-impact landing section with morphing text.
+- **SectionAbout**: Minimalist biography with sleek typography.
+- **SectionExpertise**: Grid of capabilities with 3D hover tilt.
+- **SectionProjects**: Showcase of work with interactive video thumbnails.
+- **SectionExperienceTimeline**: Vertical scroll-triggered roadmap.
+- **VideoPlayerModal**: Custom luxury video player for project showcases.
+- **Animations**: Reusable Framer Motion (Motion) components for pull-up text and spring physics.
+
+### Assets (`src/assests/`)
+- Contains project-specific `.mp4` and `.png` files for the portfolio showcases.
+
+### Configuration
+- **Tailwind 4**: Uses the new CSS-first configuration and `@tailwindcss/vite` plugin.
+- **Vite**: Configured with relative base path (`./`) for GitHub Pages compatibility.
+
+## UI/UX Design System
+- **Colors**: Deep Obsidian Black (`#000000`), Primary Cream (`#DEDBC8`).
+- **Glassmorphism**: Defined in `.liquid-glass` utility in `index.css`.
+- **Typography**: Almarai (Main), Instrument Serif (Accents), Google Sans (Interface).
+
+## Deployment Flow
+- GitHub Actions (`.github/workflows/deploy.yml`) builds the project using Node 20 and deploys the `dist` folder to GitHub Pages.
