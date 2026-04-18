@@ -12,9 +12,12 @@ import SectionExpertise from "./components/SectionExpertise";
 import SectionProjects from "./components/SectionProjects";
 import SectionExperienceTimeline from "./components/SectionExperienceTimeline";
 
+import LoadingScreen from "./components/LoadingScreen";
+
 export default function App() {
   return (
     <main className="relative bg-black min-h-screen selection:bg-primary selection:text-black font-almarai overflow-x-hidden">
+      <LoadingScreen />
       <ProgressScroll />
       <Navbar />
       <SectionHero />

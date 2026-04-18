@@ -4,7 +4,6 @@ import { ExternalLink, Scissors, Calculator, Heart, Music, Clock, User, ChevronL
 import WordsPullUp from "./animations/WordsPullUp";
 import VideoPlayerModal from "./VideoPlayerModal";
 import { useSmooothy } from "../hooks/useSmooothy";
-import { LazyImage } from "./ui/lazy-image";
 
 import lookssalonVideo from "../assests/lookssalon.mp4";
 import pearcalcImg from "../assests/pearcalc.png";
@@ -90,8 +89,7 @@ export default function SectionProjects() {
     dragSensitivity: 0.004,
     speedDecay: 0.92,
     snapStrength: 0.08,
-    scrollInput: true,
-    scrollSensitivity: 0.8,
+    scrollInput: false, // Page scroll should not move the slider
     onSlideChange: (current) => {
       setActiveSlide(current);
     },
@@ -199,14 +197,10 @@ export default function SectionProjects() {
                 key={project.title}
                 className="shrink-0 w-[85vw] md:w-[45vw] lg:w-[35vw] px-4"
               >
-                <motion.div
+                <div
                   onClick={() => handleCardClick(project)}
                   onMouseEnter={() => handleMouseEnter(project.title)}
                   onMouseLeave={() => handleMouseLeave(project.title)}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: i * 0.1 }}
-                  viewport={{ once: true }}
                   className={`liquid-glass p-6 rounded-[2rem] flex flex-col group h-full relative overflow-hidden cursor-pointer bg-gradient-to-br from-transparent to-transparent hover:from-primary/5 hover:to-transparent ${project.isPlaceholder ? 'opacity-60 grayscale cursor-default' : ''}`}
                 >
                   <div className={`w-full aspect-[16/10] rounded-2xl bg-gradient-to-br ${project.color} border border-white/5 flex items-center justify-center relative overflow-hidden mb-6`}>
@@ -222,11 +216,10 @@ export default function SectionProjects() {
                         autoPlay={isMobile}
                       />
                     ) : project.mediaType === "image" && project.media ? (
-                      <LazyImage 
+                      <img 
                         src={project.media}
                         alt={project.title}
-                        ratio={16/10}
-                        className="scale-105 group-hover:scale-100 transition-transform duration-700"
+                        className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
                       />
                     ) : (
                       <>
@@ -262,7 +255,7 @@ export default function SectionProjects() {
                       ))}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             );
           })}
