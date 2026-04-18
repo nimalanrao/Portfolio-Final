@@ -6,7 +6,75 @@ import VideoPlayerModal from "./VideoPlayerModal";
 import { useSmooothy } from "../hooks/useSmooothy";
 import { LazyImage } from "./ui/lazy-image";
 
-// ... projects array remains same ...
+import lookssalonVideo from "../assests/lookssalon.mp4";
+import pearcalcImg from "../assests/pearcalc.png";
+import valentineforcerVideo from "../assests/valentineforcer.mp4";
+import eightsevenVideo from "../assests/eightseven.mp4";
+import portfolioVideo from "../assests/portfolio.mp4";
+
+const projects = [
+  {
+    title: "Nithya Creative Studio",
+    description: "My personal digital portfolio. A luxury, immersive experience built with smooth animations and interactive UI components.",
+    link: "https://github.com/nimalanrao",
+    media: portfolioVideo,
+    mediaType: "video",
+    icon: User,
+    color: "from-white/20 to-transparent",
+    tags: ["React", "Framer Motion", "Tailwind"],
+  },
+  {
+    title: "LOOKS Salon KL",
+    description: "Luxury Hair & Beauty Destination. World-class hair styling, Balayage, Kérastase treatments, and premium beauty services.",
+    link: "https://lookssalon.my",
+    media: lookssalonVideo,
+    mediaType: "video",
+    icon: Scissors,
+    color: "from-amber-500/20 to-transparent",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+  },
+  {
+    title: "EI8HT SE7EN",
+    description: "Premier K-Pop & Street Dance Academy in Kuala Lumpur. Dynamic platform for elevating dance motion and choreography.",
+    link: "https://nimalanrao.github.io/EI8HTY-SE7EN",
+    media: eightsevenVideo,
+    mediaType: "video",
+    icon: Music,
+    color: "from-blue-500/20 to-transparent",
+    tags: ["React", "Vite", "GSAP"],
+  },
+  {
+    title: "PearCalc",
+    description: "An iOS‑themed calculator built for the web. Clean UI, smooth interactions, Apple‑inspired design — without the lock‑in.",
+    link: "https://pearcalculator.vercel.app",
+    media: pearcalcImg,
+    mediaType: "image",
+    icon: Calculator,
+    color: "from-green-500/20 to-transparent",
+    tags: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    title: "Valentine Forcer",
+    description: "A cute interactive valentine forcer with a hilarious jump-scare twist if declined too many times.",
+    link: "https://valentine-forcer.vercel.app",
+    media: valentineforcerVideo,
+    mediaType: "video",
+    icon: Heart,
+    color: "from-red-500/20 to-transparent",
+    tags: ["TypeScript", "Vite", "CSS"],
+  },
+  {
+    title: "Coming Soon",
+    description: "More luxury digital experiences and polished web applications are currently in the works.",
+    link: "#",
+    media: null,
+    mediaType: "none",
+    icon: Clock,
+    color: "from-white/10 to-transparent",
+    tags: ["Secret"],
+    isPlaceholder: true,
+  }
+];
 
 export default function SectionProjects() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
