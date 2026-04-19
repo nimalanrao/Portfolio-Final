@@ -54,6 +54,7 @@ export default function SectionHero() {
                 <span className="text-primary/60 text-[10px] sm:text-xs tracking-[0.4em] uppercase mb-4 ml-2">
                   Available for work · KL, Malaysia
                 </span>
+                <h1 className="sr-only">Nithyanatha | Digital Creative &amp; Web Developer Portfolio</h1>
                 <MorphingText
                   texts={morphTexts}
                   className="text-primary-cream !text-[clamp(2.5rem,10vw,8rem)] !text-left !mx-0 font-medium leading-[0.9] tracking-[-0.05em]"
