@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import ProgressScroll from "./components/ProgressScroll";
 import Navbar from "./components/Navbar";
 import SectionHero from "./components/SectionHero";
