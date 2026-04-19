@@ -32,7 +32,7 @@ const services = [
 
 export default function SectionExpertise() {
   return (
-    <section id="expertise" className="py-32 bg-black relative overflow-hidden">
+    <section id="services" className="py-32 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 space-y-20 relative z-10">
         <header className="space-y-2">
           <span className="text-primary text-[10px] tracking-[0.4em] uppercase opacity-70">

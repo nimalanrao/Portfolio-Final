@@ -6,7 +6,7 @@
 import ProgressScroll from "./components/ProgressScroll";
 import Navbar from "./components/Navbar";
 import SectionHero from "./components/SectionHero";
-import SectionAbout from "./components/SectionAbout";
+import { AboutScrollDemo } from "./components/AboutScrollDemo";
 import SectionExpertise from "./components/SectionExpertise";
 import SectionDevWorkflow from "./components/SectionDevWorkflow";
 import SectionProjects from "./components/SectionProjects";
@@ -30,7 +30,7 @@ export default function App() {
 
       {/* Sections */}
       <SectionHero />
-      <SectionAbout />
+      <AboutScrollDemo />
       <SectionExpertise />
       <SectionDevWorkflow />
       <SectionProjects />

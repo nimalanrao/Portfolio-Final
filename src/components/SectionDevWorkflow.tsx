@@ -39,7 +39,7 @@ const workflowCards = [
 
 export default function SectionDevWorkflow() {
   return (
-    <section id="dev-workflow" className="py-32 bg-black relative overflow-hidden">
+    <section id="skills" className="py-32 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 space-y-16 relative z-10">
         <div className="text-center space-y-4">
           <motion.span 
