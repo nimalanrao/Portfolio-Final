@@ -50,7 +50,7 @@ export function AboutScrollDemo() {
   ];
 
   const content = (
-    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 p-8 md:p-16 h-full ${isMobile ? 'liquid-glass rounded-[3rem] py-20' : 'bg-black/20 backdrop-blur-sm'}`}>
+    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 p-8 md:p-16 h-full rounded-[3rem] ${isMobile ? 'liquid-glass py-20' : 'bg-white/[0.03] backdrop-blur-md border border-white/5'}`}>
       <div className="space-y-12">
         <motion.p 
           style={{ opacity, textShadow: glow, color, scale }}
@@ -60,7 +60,7 @@ export function AboutScrollDemo() {
         </motion.p>
         
         <div className="pt-10 border-t border-white/10 flex items-start gap-6">
-          <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+          <div className="w-12 h-12 rounded-[1.25rem] bg-primary/10 flex items-center justify-center text-primary shrink-0">
             <GraduationCap className="w-6 h-6" />
           </div>
           <div className="space-y-1">
@@ -79,7 +79,7 @@ export function AboutScrollDemo() {
           </div>
           <div className="flex flex-wrap gap-3">
             {["English (Fluent)", "Malay (Fluent)", "Tamil (Intermediate)"].map(lang => (
-              <span key={lang} className="text-primary-cream text-xs border border-white/5 bg-white/[0.02] px-4 py-2 rounded-full hover:border-primary/40 transition-colors cursor-default">
+              <span key={lang} className="text-primary-cream text-xs border border-white/5 bg-white/[0.02] px-5 py-2.5 rounded-2xl hover:border-primary/40 transition-colors cursor-default">
                 {lang}
               </span>
             ))}
@@ -93,7 +93,7 @@ export function AboutScrollDemo() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             {traits.map(trait => (
-              <div key={trait.name} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.01] border border-white/5 hover:border-primary/20 transition-all group">
+              <div key={trait.name} className="flex items-center gap-3 p-4 rounded-[1.5rem] bg-white/[0.01] border border-white/5 hover:border-primary/20 transition-all group">
                 <div className="text-primary/40 group-hover:text-primary transition-colors shrink-0">
                   {trait.icon}
                 </div>
