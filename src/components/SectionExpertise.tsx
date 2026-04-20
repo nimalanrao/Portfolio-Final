@@ -2,49 +2,52 @@ import React from "react";
 import { motion } from "motion/react";
 import { Code2, Palette, TrendingUp, Video } from "lucide-react";
 import WordsPullUp from "./animations/WordsPullUp";
-
-const services = [
-  {
-    title: "Front-End Development",
-    description: "Responsive, fast, and clean websites using modern frameworks.",
-    icon: <Code2 className="w-6 h-6" />,
-    tools: ["React", "Next.js", "Tailwind", "Framer Motion"]
-  },
-  {
-    title: "Branding & UI/UX",
-    description: "Creating unique brand identities and user-centric designs.",
-    icon: <Palette className="w-6 h-6" />,
-    tools: ["Figma", "Design Systems", "Identity"]
-  },
-  {
-    title: "Digital Marketing",
-    description: "Strategic marketing to grow your brand and reach.",
-    icon: <TrendingUp className="w-6 h-6" />,
-    tools: ["SEO", "Strategy", "Analytics"]
-  },
-  {
-    title: "Content Creation",
-    description: "High-quality visuals and video for modern platforms.",
-    icon: <Video className="w-6 h-6" />,
-    tools: ["Short-form", "Visuals", "Creative"]
-  }
-];
+import { useTranslation } from "react-i18next";
 
 export default function SectionExpertise() {
+  const { t } = useTranslation();
+
+  const services = [
+    {
+      title: t("front_end"),
+      description: t("front_end_desc"),
+      icon: <Code2 className="w-6 h-6" />,
+      tools: ["React", "Next.js", "Tailwind", "Framer Motion"]
+    },
+    {
+      title: t("branding"),
+      description: t("branding_desc"),
+      icon: <Palette className="w-6 h-6" />,
+      tools: ["Figma", "Design Systems", "Identity"]
+    },
+    {
+      title: t("marketing"),
+      description: t("marketing_desc"),
+      icon: <TrendingUp className="w-6 h-6" />,
+      tools: ["SEO", "Strategy", "Analytics"]
+    },
+    {
+      title: t("content"),
+      description: t("content_desc"),
+      icon: <Video className="w-6 h-6" />,
+      tools: ["Short-form", "Visuals", "Creative"]
+    }
+  ];
+
   return (
     <section id="services" className="py-32 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 space-y-20 relative z-10">
         <header className="space-y-2">
           <span className="text-primary text-[10px] tracking-[0.4em] uppercase opacity-70">
-            What I Do
+            {t("what_i_do")}
           </span>
           <div className="space-y-0">
             <WordsPullUp
-              text="Specialized"
+              text={t("specialized")}
               className="text-primary-cream text-5xl sm:text-6xl md:text-7xl font-medium tracking-tighter leading-[0.9]"
             />
             <WordsPullUp
-              text="Expertise"
+              text={t("expertise")}
               className="text-primary-cream text-5xl sm:text-6xl md:text-7xl font-medium tracking-tighter leading-[0.9]"
             />
           </div>

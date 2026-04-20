@@ -1,54 +1,56 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { Coffee, Code } from "lucide-react";
-
-const timelineData = [
-  {
-    id: "barista",
-    role: "Barista & F&B Service",
-    period: "2025 – 2026",
-    icon: Coffee,
-    highlight: false,
-    content: {
-      description: "Delivered fast-paced service while maintaining accuracy and strong customer experience.",
-      points: [
-        "Fast-paced service delivery",
-        "Cash handling and POS systems",
-        "Inventory management",
-        "Team collaboration"
-      ]
-    }
-  },
-  {
-    id: "transition",
-    type: "bridge",
-    text: "Built speed, precision, and customer-first thinking — now applied to crafting seamless digital experiences."
-  },
-  {
-    id: "webdev",
-    role: "Freelance Web Developer & Digital Creative",
-    company: "LOOKS Salon KL",
-    location: "Kuala Lumpur, Malaysia",
-    period: "2026 – Present",
-    icon: Code,
-    highlight: true,
-    content: {
-      description: "Built and managed a luxury salon website focused on conversion, branding, and smooth UX.",
-      points: [
-        "Designed and developed a high-end responsive website",
-        "Crafted modern UI/UX with luxury positioning",
-        "Built full site (Home, Services, Gallery, Blog, Careers, Contact)",
-        "Integrated WhatsApp booking flow",
-        "Structured content for SEO (local traffic)",
-        "Optimized performance (fast load, lightweight assets)",
-        "Created branding and marketing visuals",
-        "Developed conversion-focused sections (testimonials, promos, CTAs)"
-      ]
-    }
-  }
-];
+import { useTranslation } from "react-i18next";
 
 export default function SectionExperienceTimeline() {
+  const { t } = useTranslation();
+
+  const timelineData = [
+    {
+      id: "barista",
+      role: t("exp_barista"),
+      period: "2025 – 2026",
+      icon: Coffee,
+      highlight: false,
+      content: {
+        description: t("timeline_barista_desc"),
+        points: [
+          t("exp_detail_1"),
+          t("exp_detail_2"),
+          t("exp_detail_3"),
+          t("exp_detail_4")
+        ]
+      }
+    },
+    {
+      id: "transition",
+      type: "bridge",
+      text: t("timeline_bridge")
+    },
+    {
+      id: "webdev",
+      role: t("timeline_webdev_role"),
+      company: "LOOKS Salon KL",
+      location: t("kl_malaysia"),
+      period: "2026 – Present",
+      icon: Code,
+      highlight: true,
+      content: {
+        description: t("timeline_webdev_desc"),
+        points: [
+          t("timeline_webdev_pt1"),
+          t("timeline_webdev_pt2"),
+          t("timeline_webdev_pt3"),
+          t("timeline_webdev_pt4"),
+          t("timeline_webdev_pt5"),
+          t("timeline_webdev_pt6"),
+          t("timeline_webdev_pt7"),
+          t("timeline_webdev_pt8")
+        ]
+      }
+    }
+  ];
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,

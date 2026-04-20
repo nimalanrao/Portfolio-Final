@@ -2,8 +2,10 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { MorphingText } from "./ui/liquid-text";
+import { useTranslation } from "react-i18next";
 
 export default function SectionHero() {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -15,9 +17,9 @@ export default function SectionHero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const morphTexts = [
-    "Digital Creative",
-    "Web Dev",
-    "UI/UX Design",
+    t("digital_creative"),
+    t("web_dev"),
+    t("ui_ux_design"),
   ];
 
   return (
@@ -52,7 +54,7 @@ export default function SectionHero() {
             <div className="col-span-12 lg:col-span-8">
               <div className="flex flex-col text-left">
                 <span className="text-primary/60 text-[10px] sm:text-xs tracking-[0.4em] uppercase mb-4 ml-2">
-                  Available for work · KL, Malaysia
+                  {t("available_work_kl")}
                 </span>
                 <h1 className="sr-only">Nithyanatha | Digital Creative &amp; Web Developer Portfolio</h1>
                 <MorphingText
@@ -70,7 +72,7 @@ export default function SectionHero() {
                 viewport={{ once: true }}
                 className="text-primary/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-sm"
               >
-                Front-End Developer · Content Creator. Building clean visuals, smooth user experiences, and modern digital work that helps brands stand out.
+                {t("hero_tagline")}
               </motion.p>
 
               <div className="flex flex-wrap gap-4">
@@ -85,7 +87,7 @@ export default function SectionHero() {
                   className="group flex items-center gap-2 bg-primary px-1 py-1 rounded-full transition-all duration-500 ease-out hover:shadow-[0_0_30px_rgba(222,219,200,0.6)]"
                 >
                   <span className="text-black font-medium text-sm sm:text-base pl-6 pr-2 py-2 group-hover:-translate-x-1 transition-transform duration-500">
-                    Get In Touch
+                    {t("get_in_touch")}
                   </span>
                   <div className="bg-black rounded-full w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:-rotate-45">
                     <ArrowRight className="text-primary w-5 h-5 group-hover:text-black transition-colors duration-500" />
@@ -103,7 +105,7 @@ export default function SectionHero() {
                   className="group flex items-center gap-4 border border-white/20 hover:border-white/60 px-6 py-3 rounded-full transition-all duration-500 ease-out liquid-glass hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
                 >
                   <span className="text-white font-sans font-medium text-sm sm:text-base group-hover:tracking-widest transition-all duration-500">
-                    View My Work
+                    {t("view_my_work")}
                   </span>
                 </motion.a>
               </div>

@@ -1,43 +1,45 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Smartphone, Apple, Layout, Server, Terminal, Github, Globe, Database, Cpu } from "lucide-react";
-
-const workflowCards = [
-  {
-    title: "Mobile Apps",
-    icon: <Smartphone className="w-6 h-6" />,
-    badges: [
-      { label: "iOS", icon: <Apple className="w-3 h-3" /> },
-      { label: "Android", icon: <Smartphone className="w-3 h-3" /> }
-    ],
-    description: "Build cross-platform mobile apps with clean UI and smooth performance.",
-    stack: ["React Native", "Firebase"],
-    micro_text: "Fast. Smooth. Production-ready."
-  },
-  {
-    title: "Frontend",
-    icon: <Layout className="w-6 h-6" />,
-    description: "Modern web interfaces focused on speed and responsiveness.",
-    stack: ["Next.js", "React", "Tailwind"],
-    micro_text: "Clean UI. Optimized UX."
-  },
-  {
-    title: "Backend",
-    icon: <Server className="w-6 h-6" />,
-    description: "APIs and logic built for scalability and performance.",
-    stack: ["Node.js", "REST API", "Firebase"],
-    micro_text: "Structured. Efficient. Scalable."
-  },
-  {
-    title: "Dev & Deploy",
-    icon: <Terminal className="w-6 h-6" />,
-    description: "Version control and deployment workflows.",
-    stack: ["GitHub", "Vercel", "Linux"],
-    micro_text: "Ship fast. Stay stable."
-  }
-];
+import { useTranslation } from "react-i18next";
 
 export default function SectionDevWorkflow() {
+  const { t } = useTranslation();
+
+  const workflowCards = [
+    {
+      title: t("workflow_mobile"),
+      icon: <Smartphone className="w-6 h-6" />,
+      badges: [
+        { label: "iOS", icon: <Apple className="w-3 h-3" /> },
+        { label: "Android", icon: <Smartphone className="w-3 h-3" /> }
+      ],
+      description: t("workflow_mobile_desc"),
+      stack: ["React Native", "Firebase"],
+      micro_text: t("workflow_mobile_micro")
+    },
+    {
+      title: t("workflow_frontend"),
+      icon: <Layout className="w-6 h-6" />,
+      description: t("workflow_frontend_desc"),
+      stack: ["Next.js", "React", "Tailwind"],
+      micro_text: t("workflow_frontend_micro")
+    },
+    {
+      title: t("workflow_backend"),
+      icon: <Server className="w-6 h-6" />,
+      description: t("workflow_backend_desc"),
+      stack: ["Node.js", "REST API", "Firebase"],
+      micro_text: t("workflow_backend_micro")
+    },
+    {
+      title: t("workflow_devops"),
+      icon: <Terminal className="w-6 h-6" />,
+      description: t("workflow_devops_desc"),
+      stack: ["GitHub", "Vercel", "Linux"],
+      micro_text: t("workflow_devops_micro")
+    }
+  ];
   return (
     <section id="skills" className="py-32 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 space-y-16 relative z-10">
@@ -47,14 +49,14 @@ export default function SectionDevWorkflow() {
             whileInView={{ opacity: 0.6, y: 0 }}
             className="text-primary text-[10px] tracking-[0.4em] uppercase"
           >
-            Development Workflow
+            {t("dev_workflow")}
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-primary-cream text-4xl sm:text-5xl md:text-6xl font-medium tracking-tighter"
           >
-            Tools used to build and ship applications.
+            {t("workflow_heading")}
           </motion.h2>
         </div>
 

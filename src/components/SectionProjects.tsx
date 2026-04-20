@@ -4,6 +4,7 @@ import { ExternalLink, Scissors, Calculator, Heart, Music, Clock, User, ChevronL
 import WordsPullUp from "./animations/WordsPullUp";
 import VideoPlayerModal from "./VideoPlayerModal";
 import { useSmooothy } from "../hooks/useSmooothy";
+import { useTranslation } from "react-i18next";
 
 import lookssalonVideo from "../assests/lookssalon.mp4";
 import pearcalcImg from "../assests/pearcalc.png";
@@ -11,71 +12,73 @@ import valentineforcerVideo from "../assests/valentineforcer.mp4";
 import eightsevenVideo from "../assests/eightseven.mp4";
 import portfolioVideo from "../assests/portfolio.mp4";
 
-const projects = [
-  {
-    title: "Nithya Creative Studio",
-    description: "My personal digital portfolio. A luxury, immersive experience built with smooth animations and interactive UI components.",
-    link: "https://github.com/nimalanrao",
-    media: portfolioVideo,
-    mediaType: "video",
-    icon: User,
-    color: "from-white/20 to-transparent",
-    tags: ["React", "Framer Motion", "Tailwind"],
-  },
-  {
-    title: "LOOKS Salon KL",
-    description: "Luxury Hair & Beauty Destination. World-class hair styling, Balayage, Kérastase treatments, and premium beauty services.",
-    link: "https://lookssalon.my",
-    media: lookssalonVideo,
-    mediaType: "video",
-    icon: Scissors,
-    color: "from-amber-500/20 to-transparent",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    title: "EI8HT SE7EN",
-    description: "Premier K-Pop & Street Dance Academy in Kuala Lumpur. Dynamic platform for elevating dance motion and choreography.",
-    link: "https://nimalanrao.github.io/EI8HTY-SE7EN",
-    media: eightsevenVideo,
-    mediaType: "video",
-    icon: Music,
-    color: "from-blue-500/20 to-transparent",
-    tags: ["React", "Vite", "GSAP"],
-  },
-  {
-    title: "PearCalc",
-    description: "An iOS‑themed calculator built for the web. Clean UI, smooth interactions, Apple‑inspired design — without the lock‑in.",
-    link: "https://pearcalculator.vercel.app",
-    media: pearcalcImg,
-    mediaType: "image",
-    icon: Calculator,
-    color: "from-green-500/20 to-transparent",
-    tags: ["HTML", "CSS", "JavaScript"],
-  },
-  {
-    title: "Valentine Forcer",
-    description: "A cute interactive valentine forcer with a hilarious jump-scare twist if declined too many times.",
-    link: "https://valentine-forcer.vercel.app",
-    media: valentineforcerVideo,
-    mediaType: "video",
-    icon: Heart,
-    color: "from-red-500/20 to-transparent",
-    tags: ["TypeScript", "Vite", "CSS"],
-  },
-  {
-    title: "Coming Soon",
-    description: "More luxury digital experiences and polished web applications are currently in the works.",
-    link: "#",
-    media: null,
-    mediaType: "none",
-    icon: Clock,
-    color: "from-white/10 to-transparent",
-    tags: ["Secret"],
-    isPlaceholder: true,
-  }
-];
-
 export default function SectionProjects() {
+  const { t } = useTranslation();
+  
+  const projects = [
+    {
+      title: "Nithya Creative Studio",
+      description: t("project_portfolio_desc"),
+      link: "https://github.com/nimalanrao",
+      media: portfolioVideo,
+      mediaType: "video",
+      icon: User,
+      color: "from-white/20 to-transparent",
+      tags: ["React", "Framer Motion", "Tailwind"],
+    },
+    {
+      title: "LOOKS Salon KL",
+      description: t("project_looks_desc"),
+      link: "https://lookssalon.my",
+      media: lookssalonVideo,
+      mediaType: "video",
+      icon: Scissors,
+      color: "from-amber-500/20 to-transparent",
+      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    },
+    {
+      title: "EI8HT SE7EN",
+      description: t("project_eightseven_desc"),
+      link: "https://nimalanrao.github.io/EI8HTY-SE7EN",
+      media: eightsevenVideo,
+      mediaType: "video",
+      icon: Music,
+      color: "from-blue-500/20 to-transparent",
+      tags: ["React", "Vite", "GSAP"],
+    },
+    {
+      title: "PearCalc",
+      description: t("project_pearcalc_desc"),
+      link: "https://pearcalculator.vercel.app",
+      media: pearcalcImg,
+      mediaType: "image",
+      icon: Calculator,
+      color: "from-green-500/20 to-transparent",
+      tags: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+      title: "Valentine Forcer",
+      description: t("project_valentine_desc"),
+      link: "https://valentine-forcer.vercel.app",
+      media: valentineforcerVideo,
+      mediaType: "video",
+      icon: Heart,
+      color: "from-red-500/20 to-transparent",
+      tags: ["TypeScript", "Vite", "CSS"],
+    },
+    {
+      title: t("project_coming_soon"),
+      description: t("project_coming_soon_desc"),
+      link: "#",
+      media: null,
+      mediaType: "none",
+      icon: Clock,
+      color: "from-white/10 to-transparent",
+      tags: ["Secret"],
+      isPlaceholder: true,
+    }
+  ];
+
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const videoRefs = useRef<{[key: string]: HTMLVideoElement | null}>({});
@@ -89,7 +92,7 @@ export default function SectionProjects() {
     dragSensitivity: 0.004,
     speedDecay: 0.92,
     snapStrength: 0.08,
-    scrollInput: false, // Page scroll should not move the slider
+    scrollInput: false,
     onSlideChange: (current) => {
       setActiveSlide(current);
     },
@@ -142,10 +145,10 @@ export default function SectionProjects() {
         <div className="flex items-end justify-between">
           <header className="space-y-4">
             <span className="text-primary text-[10px] tracking-[0.3em] uppercase opacity-70 block">
-              Selected Work
+              {t("selected_work")}
             </span>
             <WordsPullUp
-              text="Projects"
+              text={t("projects")}
               className="text-primary-cream text-4xl sm:text-5xl md:text-6xl font-medium tracking-tighter"
             />
           </header>

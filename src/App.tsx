@@ -7,19 +7,28 @@ import SectionDevWorkflow from "./components/SectionDevWorkflow";
 import SectionProjects from "./components/SectionProjects";
 import SectionExperienceTimeline from "./components/SectionExperienceTimeline";
 import SectionFooter from "./components/SectionFooter";
-import LoadingScreen from "./components/LoadingScreen";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import CustomCursor from "./components/CustomCursor";
 import SmoothScroll from "./components/SmoothScroll";
+import LanguageSelection from "./components/LanguageSelection";
+import LoadingScreen from "./components/LoadingScreen";
+import { useTranslation } from "react-i18next";
 
 export default function App() {
+  const { t } = useTranslation();
+  const [hasSelectedLanguage, setHasSelectedLanguage] = React.useState(false);
+
   return (
-    <SmoothScroll>
-      <main className="relative bg-black min-h-screen selection:bg-primary selection:text-black font-almarai overflow-x-hidden text-primary-cream">
-        {/* Background Systems */}
-        <CustomCursor />
-        <LoadingScreen />
-        <AnalyticsTracker />
+    <AnimatePresence mode="wait">
+      {!hasSelectedLanguage ? (
+        <LanguageSelection key="lang-select" onSelect={() => setHasSelectedLanguage(true)} />
+      ) : (
+        <SmoothScroll key="main-app">
+          <main className="relative bg-black min-h-screen selection:bg-primary selection:text-black font-almarai overflow-x-hidden text-primary-cream">
+            {/* Background Systems */}
+            <CustomCursor />
+            <LoadingScreen />
+            <AnalyticsTracker />
       <ProgressScroll />
       <Navbar />
 
@@ -34,11 +43,9 @@ export default function App() {
       {/* Privacy Policy Teaser / Section */}
       <section id="privacy" className="bg-black py-12 px-6 border-t border-white/5 opacity-30 hover:opacity-100 transition-opacity duration-500">
         <div className="max-w-7xl mx-auto text-[10px] uppercase tracking-[0.2em] text-center space-y-4">
-          <p>Privacy & Data Handling</p>
+          <p>{t("privacy_title")}</p>
           <p className="max-w-2xl mx-auto normal-case tracking-normal opacity-60">
-            We value your privacy. This site uses minimal analytics to understand visitor demographics. 
-            No sensitive personal identifiable information is stored or sold. 
-            Cookies are only used for essential site functions.
+            {t("privacy_desc_long")}
           </p>
         </div>
       </section>
@@ -46,5 +53,7 @@ export default function App() {
       <SectionFooter />
       </main>
     </SmoothScroll>
+      )}
+    </AnimatePresence>
   );
 }

@@ -1,16 +1,19 @@
 import { motion } from "motion/react";
 import WordsPullUp from "./animations/WordsPullUp";
+import { useTranslation } from "react-i18next";
 
 export default function SectionExperience() {
+  const { t } = useTranslation();
+
   const experiences = [
     {
-      role: "Barista & F&B Service",
+      role: t("exp_barista"),
       period: "2025 – 2026",
       details: [
-        "Fast-paced service delivery",
-        "Cash handling and POS systems",
-        "Inventory management",
-        "Team collaboration"
+        t("exp_detail_1"),
+        t("exp_detail_2"),
+        t("exp_detail_3"),
+        t("exp_detail_4")
       ]
     }
   ];
@@ -20,10 +23,10 @@ export default function SectionExperience() {
       <div className="max-w-7xl mx-auto space-y-24">
         <header className="space-y-4">
           <span className="text-primary text-[10px] sm:text-xs tracking-widest uppercase block opacity-70">
-            Journey
+            {t("journey")}
           </span>
           <WordsPullUp
-            text="Experience"
+            text={t("experience")}
             className="text-primary-cream text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight"
           />
         </header>

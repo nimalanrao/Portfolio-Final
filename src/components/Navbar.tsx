@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-
-const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Contact", href: "#contact" },
-];
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const { t } = useTranslation();
+
+  const navItems = [
+    { name: t("nav_about"), href: "#about" },
+    { name: t("nav_services"), href: "#services" },
+    { name: t("nav_skills"), href: "#skills" },
+    { name: t("nav_projects"), href: "#projects" },
+    { name: t("nav_experience"), href: "#experience" },
+    { name: t("nav_contact"), href: "#contact" },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -42,7 +44,7 @@ export default function Navbar() {
             animate={{ y: 0, x: "-50%", opacity: 1 }}
             exit={{ y: -100, x: "-50%", opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-6 left-1/2 z-[100] liquid-glass font-sans px-2 py-2 hidden md:flex items-center gap-1 min-w-[440px] justify-between rounded-full"
+            className="fixed top-6 left-1/2 z-[100] liquid-glass font-sans px-2 py-2 hidden md:flex items-center gap-1 min-w-[500px] justify-between rounded-full"
           >
             <div className="flex items-center gap-1 w-full px-2">
               <div className="text-primary-cream font-medium tracking-tighter text-lg pr-4 border-r border-white/10">
@@ -118,7 +120,7 @@ export default function Navbar() {
                 transition={{ delay: 0.8 }}
                 className="mt-12 flex flex-col items-center gap-4 text-primary/40 text-[10px] uppercase tracking-widest"
               >
-                <p>Kuala Lumpur, Malaysia</p>
+                <p>{t("kl_malaysia")}</p>
                 <a href="mailto:nithyananthanimalan@gmail.com">nithyananthanimalan@gmail.com</a>
               </motion.div>
             </motion.div>
