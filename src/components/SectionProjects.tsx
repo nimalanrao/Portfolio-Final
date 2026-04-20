@@ -7,8 +7,6 @@ import { useSmooothy } from "../hooks/useSmooothy";
 import { useTranslation } from "react-i18next";
 
 import lookssalonVideo from "../assests/lookssalon.mp4";
-import pearcalcImg from "../assests/pearcalc.png";
-import valentineforcerVideo from "../assests/valentineforcer.mp4";
 import eightsevenVideo from "../assests/eightseven.mp4";
 import portfolioVideo from "../assests/portfolio.mp4";
 
@@ -45,26 +43,6 @@ export default function SectionProjects() {
       icon: Music,
       color: "from-blue-500/20 to-transparent",
       tags: ["React", "Vite", "GSAP"],
-    },
-    {
-      title: "PearCalc",
-      description: t("project_pearcalc_desc"),
-      link: "https://pearcalculator.vercel.app",
-      media: pearcalcImg,
-      mediaType: "image",
-      icon: Calculator,
-      color: "from-green-500/20 to-transparent",
-      tags: ["HTML", "CSS", "JavaScript"],
-    },
-    {
-      title: "Valentine Forcer",
-      description: t("project_valentine_desc"),
-      link: "https://valentine-forcer.vercel.app",
-      media: valentineforcerVideo,
-      mediaType: "video",
-      icon: Heart,
-      color: "from-red-500/20 to-transparent",
-      tags: ["TypeScript", "Vite", "CSS"],
     },
     {
       title: t("project_coming_soon"),

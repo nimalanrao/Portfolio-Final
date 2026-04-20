@@ -27,6 +27,9 @@ export default function App() {
       ) : (
         <SmoothScroll key="main-app">
           <main className="relative bg-black min-h-screen selection:bg-primary selection:text-black font-almarai overflow-x-hidden text-primary-cream">
+            {/* Cinematic Vignette */}
+            <div className="vignette" />
+            
             {/* Background Systems */}
             <CustomCursor />
             <LoadingScreen />

@@ -82,6 +82,14 @@
     box-shadow: 0 0 8px 4px rgba(245, 245, 220, 0.4);
     opacity: 0.5;
   }
+
+  .vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background: radial-gradient(circle, transparent 60%, rgba(0, 0, 0, 0.5) 100%);
+  }
 }
 
 @theme inline {
