@@ -39,7 +39,6 @@ export default function SectionFooter() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 border-t border-white/5">
             <div className="flex items-center gap-6">
               <div className="text-primary-cream font-medium tracking-tighter text-2xl">Nithyanantha</div>
-              <a href="/privacy" className="text-[10px] text-gray-500 uppercase tracking-widest hover:text-primary transition-colors">{t("privacy_policy")}</a>
             </div>
             <div className="text-[10px] text-gray-500 uppercase tracking-widest text-center md:text-right">
               © 2026 Nithyanantha. {t("digital_creative")}. <br className="md:hidden" />

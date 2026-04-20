@@ -59,7 +59,6 @@ i18n
           available_worldwide: "Available Worldwide",
           email: "Email",
           phone: "Phone",
-          privacy_policy: "Privacy Policy",
           digital_creative: "Digital Creative",
           built_for_speed: "Built for speed and luxury.",
           nav_about: "About",
@@ -111,12 +110,9 @@ i18n
           lang_english: "English (Fluent)",
           lang_malay: "Malay (Fluent)",
           lang_tamil: "Tamil (Intermediate)",
-          privacy_title: "Privacy & Data Handling",
-          privacy_desc_long: "We value your privacy. This site uses minimal analytics to understand visitor demographics. No sensitive personal identifiable information is stored or sold. Cookies are only used for essential site functions.",
           select_language: "Select Language",
           choose_experience: "Choose Your Experience",
-          footer_desc: "Digital creative building high-end web experiences.",
-          privacy: "Privacy & Data Handling"
+          footer_desc: "Digital creative building high-end web experiences."
         }
       },
       ms: {
@@ -168,7 +164,6 @@ i18n
           available_worldwide: "Tersedia Seluruh Dunia",
           email: "E-mel",
           phone: "Telefon",
-          privacy_policy: "Dasar Privasi",
           digital_creative: "Kreatif Digital",
           built_for_speed: "Dibina untuk kepantasan dan kemewahan.",
           nav_about: "Tentang",
@@ -219,10 +214,7 @@ i18n
           lang_english: "Inggeris (Fasih)",
           lang_malay: "Melayu (Fasih)",
           lang_tamil: "Tamil (Sederhana)",
-          privacy_title: "Privasi & Pengendalian Data",
-          privacy_desc_long: "Kami menghargai privasi anda. Laman ini menggunakan analitik minimum untuk memahami demografi pelawat. Tiada maklumat pengenalan peribadi yang sensitif disimpan atau dijual. Kuki hanya digunakan untuk fungsi asas laman web.",
-          footer_desc: "Kreatif digital membina pengalaman web mewah.",
-          privacy: "Privasi & Pengendalian Data"
+          footer_desc: "Kreatif digital membina pengalaman web mewah."
         }
       },
       zh: {
@@ -274,7 +266,6 @@ i18n
           available_worldwide: "全球服务",
           email: "电子邮件",
           phone: "电话",
-          privacy_policy: "隐私政策",
           digital_creative: "数字创意人",
           built_for_speed: "为速度与极致而生。",
           nav_about: "关于",
@@ -326,10 +317,7 @@ i18n
           lang_english: "英语 (精通)",
           lang_malay: "马来语 (精通)",
           lang_tamil: "泰米尔语 (中等)",
-          privacy_title: "隐私与数据处理",
-          privacy_desc_long: "我们重视您的隐私。本网站使用最少的分析工具来了解访问者的人口统计信息。不存储或出售敏感的个人身份信息。Cookie 仅用于基本的网站功能。",
-          footer_desc: "致力于构建高端网络体验的数字创意人。",
-          privacy: "隐私与数据处理"
+          footer_desc: "致力于构建高端网络体验的数字创意人。"
         }
       }
     }

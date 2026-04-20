@@ -45,17 +45,9 @@ export default function App() {
       <SectionProjects />
       <SectionExperienceTimeline />
 
-      {/* Privacy Policy Teaser / Section */}
-      <section id="privacy" className="bg-black py-12 px-6 border-t border-white/5 opacity-30 hover:opacity-100 transition-opacity duration-500">
-        <div className="max-w-7xl mx-auto text-[10px] uppercase tracking-[0.2em] text-center space-y-4">
-          <p>{t("privacy_title")}</p>
-          <p className="max-w-2xl mx-auto normal-case tracking-normal opacity-60">
-            {t("privacy_desc_long")}
-          </p>
-        </div>
-      </section>
 
       <SectionFooter />
+
       </main>
     </SmoothScroll>
       )}
