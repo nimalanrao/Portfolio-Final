@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useTransform, type MotionValue } from "motion/react";
+import { motion, useTransform, type MotionValue } from "framer-motion";
 
 interface AnimatedLetterProps {
   char: string;

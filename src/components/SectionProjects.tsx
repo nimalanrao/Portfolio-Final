@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { ExternalLink, Scissors, Calculator, Heart, Music, Clock, User, ChevronLeft, ChevronRight } from "lucide-react";
 import WordsPullUp from "./animations/WordsPullUp";
 import VideoPlayerModal from "./VideoPlayerModal";

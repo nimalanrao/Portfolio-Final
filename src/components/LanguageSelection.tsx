@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 interface LanguageSelectionProps {
@@ -7,7 +7,7 @@ interface LanguageSelectionProps {
 }
 
 export default function LanguageSelection({ onSelect }: LanguageSelectionProps) {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const handleSelect = (lang: string) => {
     i18n.changeLanguage(lang);

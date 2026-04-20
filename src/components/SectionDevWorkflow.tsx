@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Smartphone, Apple, Layout, Server, Terminal, Github, Globe, Database, Cpu } from "lucide-react";
 import { useTranslation } from "react-i18next";
 

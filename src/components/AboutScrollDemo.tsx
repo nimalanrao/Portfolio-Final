@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
-import { useScroll, useTransform, motion } from "motion/react";
+import { useScroll, useTransform, motion } from "framer-motion";
 import { GraduationCap, Languages, Zap, Target, Rocket, Lightbulb, Brain, Users, Sparkles, Code2 } from "lucide-react";
 import WordsPullUpMultiStyle from "./animations/WordsPullUpMultiStyle";
 import { ContainerScroll } from "./ui/container-scroll-animation";

@@ -12,7 +12,9 @@ import CustomCursor from "./components/CustomCursor";
 import SmoothScroll from "./components/SmoothScroll";
 import LanguageSelection from "./components/LanguageSelection";
 import LoadingScreen from "./components/LoadingScreen";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import { AnimatePresence } from "framer-motion";
 
 export default function App() {
   const { t } = useTranslation();
