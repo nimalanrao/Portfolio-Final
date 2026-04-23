@@ -1,12 +1,28 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Coffee, Code } from "lucide-react";
+import { Coffee, Code, ShoppingBag } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function SectionExperienceTimeline() {
   const { t } = useTranslation();
 
   const timelineData = [
+    {
+      id: "ecommerce",
+      role: t("exp_ecommerce"),
+      period: "2023 – 2025",
+      icon: ShoppingBag,
+      highlight: false,
+      content: {
+        description: t("timeline_ecommerce_desc"),
+        points: [
+          t("exp_ecommerce_pt1"),
+          t("exp_ecommerce_pt2"),
+          t("exp_ecommerce_pt3"),
+          t("exp_ecommerce_pt4")
+        ]
+      }
+    },
     {
       id: "barista",
       role: t("exp_barista"),

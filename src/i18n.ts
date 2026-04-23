@@ -112,7 +112,13 @@ i18n
           lang_tamil: "Tamil (Intermediate)",
           select_language: "Select Language",
           choose_experience: "Choose Your Experience",
-          footer_desc: "Digital creative building high-end web experiences."
+          footer_desc: "Digital creative building high-end web experiences.",
+          exp_ecommerce: "E-commerce Specialist & Online Seller",
+          timeline_ecommerce_desc: "Managed end-to-end online store operations across major platforms including Shopee, TikTok, and Lazada.",
+          exp_ecommerce_pt1: "Managed multi-platform store operations",
+          exp_ecommerce_pt2: "Optimized product listings and SEO",
+          exp_ecommerce_pt3: "Handled customer engagement and service",
+          exp_ecommerce_pt4: "Coordinated inventory and logistics"
         }
       },
       ms: {
@@ -214,7 +220,13 @@ i18n
           lang_english: "Inggeris (Fasih)",
           lang_malay: "Melayu (Fasih)",
           lang_tamil: "Tamil (Sederhana)",
-          footer_desc: "Kreatif digital membina pengalaman web mewah."
+          footer_desc: "Kreatif digital membina pengalaman web mewah.",
+          exp_ecommerce: "Pakar E-dagang & Penjual Dalam Talian",
+          timeline_ecommerce_desc: "Menguruskan operasi kedai dalam talian dari awal hingga akhir merentasi platform utama termasuk Shopee, TikTok, dan Lazada.",
+          exp_ecommerce_pt1: "Menguruskan operasi kedai pelbagai platform",
+          exp_ecommerce_pt2: "Mengoptimumkan senarai produk dan SEO",
+          exp_ecommerce_pt3: "Mengendalikan interaksi dan khidmat pelanggan",
+          exp_ecommerce_pt4: "Menyelaras inventori dan logistik"
         }
       },
       zh: {
@@ -317,7 +329,13 @@ i18n
           lang_english: "英语 (精通)",
           lang_malay: "马来语 (精通)",
           lang_tamil: "泰米尔语 (中等)",
-          footer_desc: "致力于构建高端网络体验的数字创意人。"
+          footer_desc: "致力于构建高端网络体验的数字创意人。",
+          exp_ecommerce: "电子商务专家与在线卖家",
+          timeline_ecommerce_desc: "管理跨主要平台（包括 Shopee、TikTok 和 Lazada）的端到端在线商店运营。",
+          exp_ecommerce_pt1: "管理多平台商店运营",
+          exp_ecommerce_pt2: "优化产品列表和 SEO",
+          exp_ecommerce_pt3: "处理客户互动与服务",
+          exp_ecommerce_pt4: "协调库存与物流"
         }
       }
     }
