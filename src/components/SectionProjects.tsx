@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Scissors, Music, Clock, User, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, Scissors, Music, Clock, User, ChevronLeft, ChevronRight, Layers } from "lucide-react";
 import WordsPullUp from "./animations/WordsPullUp";
 import VideoPlayerModal from "./VideoPlayerModal";
 import { useTranslation } from "react-i18next";
@@ -13,6 +13,16 @@ export default function SectionProjects() {
   const { t } = useTranslation();
 
   const projects = [
+    {
+      title: "VELTRIX STUDIO",
+      description: t("project_veltrix_desc"),
+      link: "https://veltrixstudio.com",
+      media: null,
+      mediaType: "none",
+      icon: Layers,
+      color: "from-cyan-500/20 via-primary/10 to-transparent",
+      tags: ["Web Systems", "AI Automation", "React", "Tailwind"],
+    },
     {
       title: "Nithya Creative Studio",
       description: t("project_portfolio_desc"),
