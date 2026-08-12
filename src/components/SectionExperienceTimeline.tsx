@@ -121,14 +121,14 @@ export default function SectionExperienceTimeline() {
       ref={containerRef}
       className="relative h-[260vh] sm:h-[300vh] bg-black text-slate-100"
     >
-      {/* Sticky Locked Container with balanced top clearance */}
+      {/* Sticky Locked Container */}
       <div className="sticky top-0 h-screen max-h-screen flex flex-col justify-between pt-16 sm:pt-20 pb-5 px-4 sm:px-6 md:px-8 max-w-5xl mx-auto w-full overflow-hidden z-10 space-y-4">
         
         {/* Header & Minimalist Progress Section */}
         <div className="space-y-3 shrink-0">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
             <div>
-              <span className="text-amber-200/80 text-[10px] sm:text-xs tracking-[0.4em] uppercase block font-mono">
+              <span className="text-yellow-300/90 text-[10px] sm:text-xs tracking-[0.4em] uppercase block font-mono">
                 {t("journey")}
               </span>
               <WordsPullUp
@@ -139,21 +139,21 @@ export default function SectionExperienceTimeline() {
 
             {/* High-contrast Mono Progress Badge */}
             <div className="flex items-center gap-2.5 bg-zinc-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 self-start sm:self-auto">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+              <Sparkles className="w-3.5 h-3.5 text-yellow-300 animate-pulse" />
               <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400">
                 Progress
               </span>
-              <span className="text-sm font-mono font-semibold text-amber-200 min-w-[2.5rem] text-right">
+              <span className="text-sm font-mono font-semibold text-yellow-300 min-w-[2.5rem] text-right">
                 {progressPercent}%
               </span>
             </div>
           </div>
 
-          {/* Minimal 2px Progress Line */}
+          {/* Minimal 2px Yellow Progress Line */}
           <div className="w-full h-1 bg-white/10 rounded-full relative overflow-hidden backdrop-blur-sm">
             <motion.div
               style={{ scaleX: smoothProgress, transformOrigin: "left" }}
-              className="h-full bg-gradient-to-r from-amber-300/40 via-amber-200 to-amber-100 rounded-full shadow-[0_0_12px_rgba(251,191,36,0.6)]"
+              className="h-full bg-gradient-to-r from-yellow-400/50 via-yellow-300 to-yellow-200 rounded-full shadow-[0_0_12px_rgba(250,204,21,0.7)]"
             />
           </div>
 
@@ -167,12 +167,12 @@ export default function SectionExperienceTimeline() {
                   onClick={() => setActiveIndex(idx)}
                   className={`px-3 py-2 rounded-xl text-xs font-mono transition-all duration-300 flex items-center justify-between border cursor-pointer ${
                     isActive
-                      ? "bg-amber-400/15 border-amber-300/60 text-white font-medium shadow-[0_0_15px_rgba(251,191,36,0.15)]"
+                      ? "bg-yellow-400/15 border-yellow-300/60 text-white font-medium shadow-[0_0_15px_rgba(250,204,21,0.2)]"
                       : "bg-white/[0.03] border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20"
                   }`}
                 >
                   <div className="flex items-center gap-1.5 truncate">
-                    <span className="text-[10px] text-amber-300 font-semibold">0{idx + 1}.</span>
+                    <span className="text-[10px] text-yellow-300 font-semibold">0{idx + 1}.</span>
                     <span className="truncate uppercase tracking-wider text-[11px]">{exp.tabLabel}</span>
                   </div>
                   <span className="text-[9px] opacity-60 hidden md:inline shrink-0">{exp.period.split(" ")[0]}</span>
@@ -193,14 +193,14 @@ export default function SectionExperienceTimeline() {
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="w-full max-w-4xl bg-zinc-950/90 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.8)] flex flex-col justify-between space-y-5 relative overflow-hidden"
             >
-              {/* Subtle ambient aura */}
-              <div className="absolute -top-24 -right-24 w-72 h-72 bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
+              {/* Subtle yellow ambient aura */}
+              <div className="absolute -top-24 -right-24 w-72 h-72 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="space-y-4 relative z-10">
                 {/* Card Header Row */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-200 shrink-0 shadow-inner">
+                    <div className="w-12 h-12 rounded-2xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center text-yellow-300 shrink-0 shadow-inner">
                       <IconComponent className="w-6 h-6" />
                     </div>
                     <div>
@@ -217,7 +217,7 @@ export default function SectionExperienceTimeline() {
                     <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">
                       PHASE 0{activeIndex + 1} / 0{experiences.length}
                     </span>
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider text-amber-200 bg-amber-400/10 border border-amber-400/20">
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider text-yellow-300 bg-yellow-400/10 border border-yellow-400/20">
                       {currentItem.isCurrent && (
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                       )}
@@ -231,18 +231,18 @@ export default function SectionExperienceTimeline() {
                   {currentItem.description}
                 </p>
 
-                {/* Key Deliverables List */}
+                {/* Key Deliverables List (Hidden Scrollbar) */}
                 <div className="space-y-2.5 pt-1">
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-amber-200/80 font-mono font-medium block">
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-yellow-300/90 font-mono font-medium block">
                     Key Deliverables
                   </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[28vh] overflow-y-auto pr-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[35vh] overflow-y-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pr-1">
                     {currentItem.points.map((pt, pIdx) => (
                       <div
                         key={pIdx}
                         className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all group"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-amber-300/80 shrink-0 mt-0.5 group-hover:text-amber-200 transition-colors" />
+                        <CheckCircle2 className="w-4 h-4 text-yellow-300 shrink-0 mt-0.5 group-hover:text-yellow-200 transition-colors" />
                         <span className="text-xs sm:text-sm text-zinc-300 group-hover:text-white leading-relaxed">
                           {pt}
                         </span>
@@ -261,7 +261,7 @@ export default function SectionExperienceTimeline() {
             <button
               onClick={() => setActiveIndex((prev) => Math.max(0, prev - 1))}
               disabled={activeIndex === 0}
-              className="p-1.5 rounded-lg border border-white/10 disabled:opacity-25 hover:border-amber-200/50 text-zinc-300 hover:text-white transition-all cursor-pointer"
+              className="p-1.5 rounded-lg border border-white/10 disabled:opacity-25 hover:border-yellow-300/50 text-zinc-300 hover:text-white transition-all cursor-pointer"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -271,7 +271,7 @@ export default function SectionExperienceTimeline() {
             <button
               onClick={() => setActiveIndex((prev) => Math.min(experiences.length - 1, prev + 1))}
               disabled={activeIndex === experiences.length - 1}
-              className="p-1.5 rounded-lg border border-white/10 disabled:opacity-25 hover:border-amber-200/50 text-zinc-300 hover:text-white transition-all cursor-pointer"
+              className="p-1.5 rounded-lg border border-white/10 disabled:opacity-25 hover:border-yellow-300/50 text-zinc-300 hover:text-white transition-all cursor-pointer"
             >
               <ChevronRight className="w-4 h-4" />
             </button>

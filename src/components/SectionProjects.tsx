@@ -8,17 +8,18 @@ import { useTranslation } from "react-i18next";
 import lookssalonVideo from "../assests/lookssalon.mp4";
 import eightsevenVideo from "../assests/eightseven.mp4";
 import portfolioVideo from "../assests/portfolio.mp4";
+import veltrixstudioImage from "../assests/veltrixstudio.png";
 
 export default function SectionProjects() {
   const { t } = useTranslation();
 
   const projects = [
     {
-      title: "VELTRIX STUDIO",
+      title: "Veltrix Studio",
       description: t("project_veltrix_desc"),
-      link: "https://veltrixstudio.com",
-      media: null,
-      mediaType: "none",
+      link: "https://www.veltrixstudio.lol/",
+      media: veltrixstudioImage,
+      mediaType: "image",
       icon: Layers,
       color: "from-cyan-500/20 via-primary/10 to-transparent",
       tags: ["Web Systems", "AI Automation", "React", "Tailwind"],
@@ -204,6 +205,12 @@ export default function SectionProjects() {
                         playsInline
                         loop
                         preload="metadata"
+                        className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 pointer-events-none"
+                      />
+                    ) : project.mediaType === "image" && project.media ? (
+                      <img
+                        src={project.media}
+                        alt={project.title}
                         className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 pointer-events-none"
                       />
                     ) : (
