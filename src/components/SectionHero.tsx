@@ -23,7 +23,7 @@ export default function SectionHero() {
   ];
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full p-4 md:p-6 bg-black overflow-hidden flex items-center justify-center">
+    <section id="hero" ref={containerRef} className="relative h-screen w-full p-4 md:p-6 bg-black overflow-hidden flex items-center justify-center">
       <motion.div
         style={{ scale, opacity, y }}
         className="relative h-full w-full rounded-2xl md:rounded-[2.5rem] overflow-hidden group shadow-[0_0_100px_rgba(0,0,0,0.5)]"

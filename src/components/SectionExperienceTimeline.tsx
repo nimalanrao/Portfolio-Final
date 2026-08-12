@@ -1,182 +1,287 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Coffee, Code, ShoppingBag } from "lucide-react";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
+import { Code, Coffee, ShoppingBag, Wrench, Sparkles, CheckCircle2, ChevronRight, ChevronLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import WordsPullUp from "./animations/WordsPullUp";
 
 export default function SectionExperienceTimeline() {
   const { t } = useTranslation();
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const timelineData = [
+  const experiences = [
     {
       id: "ecommerce",
       role: t("exp_ecommerce"),
+      company: "Multi-Platform Retail",
+      tabLabel: "Multi-Platform",
+      location: t("kl_malaysia"),
       period: "2023 – 2025",
+      isCurrent: false,
       icon: ShoppingBag,
       highlight: false,
-      content: {
-        description: t("timeline_ecommerce_desc"),
-        points: [
-          t("exp_ecommerce_pt1"),
-          t("exp_ecommerce_pt2"),
-          t("exp_ecommerce_pt3"),
-          t("exp_ecommerce_pt4")
-        ]
-      }
+      description: t("timeline_ecommerce_desc"),
+      points: [
+        t("exp_ecommerce_pt1"),
+        t("exp_ecommerce_pt2"),
+        t("exp_ecommerce_pt3"),
+        t("exp_ecommerce_pt4"),
+      ],
     },
     {
       id: "barista",
       role: t("exp_barista"),
+      company: "F&B Services",
+      tabLabel: "F&B Services",
+      location: t("kl_malaysia"),
       period: "2025 – 2026",
+      isCurrent: false,
       icon: Coffee,
       highlight: false,
-      content: {
-        description: t("timeline_barista_desc"),
-        points: [
-          t("exp_detail_1"),
-          t("exp_detail_2"),
-          t("exp_detail_3"),
-          t("exp_detail_4")
-        ]
-      }
-    },
-    {
-      id: "transition",
-      type: "bridge",
-      text: t("timeline_bridge")
+      description: t("timeline_barista_desc"),
+      points: [
+        t("exp_detail_1"),
+        t("exp_detail_2"),
+        t("exp_detail_3"),
+        t("exp_detail_4"),
+      ],
     },
     {
       id: "webdev",
       role: t("timeline_webdev_role"),
-      company: "LOOKS Salon KL",
+      company: "Web Development",
+      tabLabel: "Web Development",
       location: t("kl_malaysia"),
       period: "2026 – Present",
+      isCurrent: true,
       icon: Code,
       highlight: true,
-      content: {
-        description: t("timeline_webdev_desc"),
-        points: [
-          t("timeline_webdev_pt1"),
-          t("timeline_webdev_pt2"),
-          t("timeline_webdev_pt3"),
-          t("timeline_webdev_pt4"),
-          t("timeline_webdev_pt5"),
-          t("timeline_webdev_pt6"),
-          t("timeline_webdev_pt7"),
-          t("timeline_webdev_pt8")
-        ]
-      }
-    }
+      description: t("timeline_webdev_desc"),
+      points: [
+        t("timeline_webdev_pt1"),
+        t("timeline_webdev_pt2"),
+        t("timeline_webdev_pt3"),
+        t("timeline_webdev_pt4"),
+        t("timeline_webdev_pt5"),
+        t("timeline_webdev_pt6"),
+        t("timeline_webdev_pt7"),
+        t("timeline_webdev_pt8"),
+      ],
+    },
+    {
+      id: "hardware",
+      role: t("exp_hardware_admin"),
+      company: "Hardware Retail Operations",
+      tabLabel: "Hardware Retail",
+      location: t("kl_malaysia"),
+      period: "2026 – Present",
+      isCurrent: true,
+      icon: Wrench,
+      highlight: true,
+      description: t("timeline_hardware_desc"),
+      points: [
+        t("exp_hardware_pt1"),
+        t("exp_hardware_pt2"),
+        t("exp_hardware_pt3"),
+        t("exp_hardware_pt4"),
+        t("exp_hardware_pt5"),
+      ],
+    },
   ];
-  const ref = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start center", "end center"],
+    target: containerRef,
+    offset: ["start start", "end end"],
   });
-  
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  const [progressPercent, setProgressPercent] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const lines = document.querySelectorAll('.experience-line');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('glow');
-        } else {
-          entry.target.classList.remove('glow');
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    lines.forEach(line => observer.observe(line));
-    return () => observer.disconnect();
-  }, []);
+    return smoothProgress.on("change", (latest) => {
+      const pct = Math.min(100, Math.max(0, Math.round(latest * 100)));
+      setProgressPercent(pct);
+
+      const index = Math.min(experiences.length - 1, Math.floor(latest * experiences.length));
+      setActiveIndex(index);
+    });
+  }, [smoothProgress, experiences.length]);
+
+  const currentItem = experiences[activeIndex];
+  const IconComponent = currentItem.icon;
 
   return (
-    <section id="experience" className="relative py-32 bg-black overflow-hidden" ref={ref}>
-        {/* Scroll Progress Line */}
-        <div className="absolute left-1/2 -translate-x-1/2 w-0.5 h-full bg-white/5" />
-        <motion.div
-          className="absolute left-1/2 -translate-x-1/2 w-1 bg-primary/30 rounded-full shadow-[0_0_15px_rgba(222,219,200,0.5)]"
-          style={{ height: lineHeight, top: 0 }}
-        />
+    <section
+      id="experience"
+      ref={containerRef}
+      className="relative h-[260vh] sm:h-[300vh] bg-black text-slate-100"
+    >
+      {/* Sticky Locked Container with balanced top clearance */}
+      <div className="sticky top-0 h-screen max-h-screen flex flex-col justify-between pt-16 sm:pt-20 pb-5 px-4 sm:px-6 md:px-8 max-w-5xl mx-auto w-full overflow-hidden z-10 space-y-4">
+        
+        {/* Header & Minimalist Progress Section */}
+        <div className="space-y-3 shrink-0">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+            <div>
+              <span className="text-amber-200/80 text-[10px] sm:text-xs tracking-[0.4em] uppercase block font-mono">
+                {t("journey")}
+              </span>
+              <WordsPullUp
+                text={t("experience")}
+                className="text-white text-3xl sm:text-4xl md:text-5xl font-medium tracking-tighter"
+              />
+            </div>
 
-        <div className="max-w-7xl mx-auto relative z-10 space-y-32">
-          {timelineData.map((item, i) => {
-            if (item.type === "bridge") {
+            {/* High-contrast Mono Progress Badge */}
+            <div className="flex items-center gap-2.5 bg-zinc-900/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 self-start sm:self-auto">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+              <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400">
+                Progress
+              </span>
+              <span className="text-sm font-mono font-semibold text-amber-200 min-w-[2.5rem] text-right">
+                {progressPercent}%
+              </span>
+            </div>
+          </div>
+
+          {/* Minimal 2px Progress Line */}
+          <div className="w-full h-1 bg-white/10 rounded-full relative overflow-hidden backdrop-blur-sm">
+            <motion.div
+              style={{ scaleX: smoothProgress, transformOrigin: "left" }}
+              className="h-full bg-gradient-to-r from-amber-300/40 via-amber-200 to-amber-100 rounded-full shadow-[0_0_12px_rgba(251,191,36,0.6)]"
+            />
+          </div>
+
+          {/* Clean Step Tab Buttons */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+            {experiences.map((exp, idx) => {
+              const isActive = activeIndex === idx;
               return (
-                <motion.div
-                  key={item.id}
-                  className="flex justify-center text-center px-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                <button
+                  key={exp.id}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`px-3 py-2 rounded-xl text-xs font-mono transition-all duration-300 flex items-center justify-between border cursor-pointer ${
+                    isActive
+                      ? "bg-amber-400/15 border-amber-300/60 text-white font-medium shadow-[0_0_15px_rgba(251,191,36,0.15)]"
+                      : "bg-white/[0.03] border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20"
+                  }`}
                 >
-                  <p className="text-primary-cream text-lg italic max-w-2xl font-sans">"{item.text}"</p>
-                </motion.div>
+                  <div className="flex items-center gap-1.5 truncate">
+                    <span className="text-[10px] text-amber-300 font-semibold">0{idx + 1}.</span>
+                    <span className="truncate uppercase tracking-wider text-[11px]">{exp.tabLabel}</span>
+                  </div>
+                  <span className="text-[9px] opacity-60 hidden md:inline shrink-0">{exp.period.split(" ")[0]}</span>
+                </button>
               );
-            }
-
-            const cardIndex = timelineData.filter(d => d.type !== "bridge").findIndex(d => d.id === item.id);
-            const isEven = cardIndex % 2 === 0;
-            const CardIcon = item.icon as any;
-            
-            return (
-              <motion.div
-                key={item.id}
-                className={`relative flex flex-col md:flex-row items-center w-full ${isEven ? 'md:justify-start' : 'md:justify-end'}`}
-                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true, margin: "-100px" }}
-              >
-                {/* Connector Dot */}
-                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-black border-2 border-primary rounded-full z-20 shadow-[0_0_10px_rgba(222,219,200,0.5)] group-hover:scale-150 group-hover:bg-primary transition-all duration-500" />
-                
-                {/* Card Container */}
-                <div className={`w-full md:w-5/12 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <motion.div 
-                    whileHover={{ scale: 1.03, y: -5, rotateX: 2, rotateY: isEven ? -2 : 2 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className={`liquid-glass p-8 rounded-[1.5rem] shadow-lg group hover:shadow-[0_0_40px_rgba(222,219,200,0.15)] transition-colors duration-500 border border-primary/10 hover:border-primary/30 relative overflow-hidden ${item.highlight ? 'bg-gradient-to-br from-primary/5 to-transparent' : 'bg-gradient-to-br from-transparent to-transparent hover:from-primary/5 hover:to-transparent'}`}
-                  >
-                    
-                    {/* Torch Light Hover Effect Placeholder */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(222,219,200,0.08)_0%,transparent_70%)]" />
-
-                    <div className="flex items-center gap-4 mb-4 relative z-10">
-                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-125 group-hover:bg-primary group-hover:text-black transition-all duration-500 group-hover:rotate-12">
-                        {CardIcon && <CardIcon className="w-5 h-5" />}
-                      </div>
-                      <div className="group-hover:translate-x-1 transition-transform duration-500">
-                        <h3 className="text-xl font-medium text-primary-cream">{item.role}</h3>
-                        {item.company && <p className="text-primary/80 text-sm">{item.company} • {item.location}</p>}
-                      </div>
-                    </div>
-                    
-                    <p className="text-primary/50 text-xs tracking-widest uppercase mb-6 relative z-10 group-hover:text-primary transition-colors duration-500">{item.period}</p>
-                    
-                    <div className="space-y-4 relative z-10">
-                      <p className="text-gray-300 text-sm leading-relaxed">{item.content?.description}</p>
-                      
-                      <ul className="space-y-2 mt-4">
-                        {item.content?.points.map((pt, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-gray-400 text-sm group/pt">
-                            <span className="block w-1.5 h-1.5 bg-primary/50 rounded-full mt-1.5 flex-shrink-0 group-hover/pt:scale-150 group-hover/pt:bg-primary transition-all duration-300" />
-                            <span className="group-hover/pt:text-white transition-colors duration-300">{pt}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Bottom Glowing Beige Line */}
-                    <div className="experience-line absolute bottom-0 left-0 right-0 h-1 rounded-b-[1.5rem] group-hover:shadow-[0_0_15px_4px_rgba(245,245,220,0.6)] group-hover:opacity-80 transition-all duration-500" />
-                  </motion.div>
-                </div>
-              </motion.div>
-            );
-          })}
+            })}
+          </div>
         </div>
-      </section>
+
+        {/* Perfectly Balanced Spotlight Card Container */}
+        <div className="my-auto relative w-full flex-1 flex items-center justify-center py-2">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentItem.id}
+              initial={{ opacity: 0, y: 15, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -15, scale: 0.98 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full max-w-4xl bg-zinc-950/90 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.8)] flex flex-col justify-between space-y-5 relative overflow-hidden"
+            >
+              {/* Subtle ambient aura */}
+              <div className="absolute -top-24 -right-24 w-72 h-72 bg-amber-400/5 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="space-y-4 relative z-10">
+                {/* Card Header Row */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-200 shrink-0 shadow-inner">
+                      <IconComponent className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-medium text-white tracking-tight leading-snug">
+                        {currentItem.role}
+                      </h3>
+                      <p className="text-zinc-400 text-xs sm:text-sm mt-0.5 font-sans">
+                        {currentItem.company} • {currentItem.location}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 self-start sm:self-auto shrink-0">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+                      PHASE 0{activeIndex + 1} / 0{experiences.length}
+                    </span>
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider text-amber-200 bg-amber-400/10 border border-amber-400/20">
+                      {currentItem.isCurrent && (
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                      )}
+                      <span>{currentItem.period}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-zinc-300 text-sm sm:text-base leading-relaxed font-normal">
+                  {currentItem.description}
+                </p>
+
+                {/* Key Deliverables List */}
+                <div className="space-y-2.5 pt-1">
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-amber-200/80 font-mono font-medium block">
+                    Key Deliverables
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[28vh] overflow-y-auto pr-1">
+                    {currentItem.points.map((pt, pIdx) => (
+                      <div
+                        key={pIdx}
+                        className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all group"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-amber-300/80 shrink-0 mt-0.5 group-hover:text-amber-200 transition-colors" />
+                        <span className="text-xs sm:text-sm text-zinc-300 group-hover:text-white leading-relaxed">
+                          {pt}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Minimal Footer Controls */}
+        <div className="flex items-center justify-between text-[10px] sm:text-xs font-mono text-zinc-500 pt-2 shrink-0 border-t border-white/10">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setActiveIndex((prev) => Math.max(0, prev - 1))}
+              disabled={activeIndex === 0}
+              className="p-1.5 rounded-lg border border-white/10 disabled:opacity-25 hover:border-amber-200/50 text-zinc-300 hover:text-white transition-all cursor-pointer"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <span className="uppercase tracking-widest text-zinc-400">
+              Phase 0{activeIndex + 1} of 0{experiences.length}
+            </span>
+            <button
+              onClick={() => setActiveIndex((prev) => Math.min(experiences.length - 1, prev + 1))}
+              disabled={activeIndex === experiences.length - 1}
+              className="p-1.5 rounded-lg border border-white/10 disabled:opacity-25 hover:border-amber-200/50 text-zinc-300 hover:text-white transition-all cursor-pointer"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          <span className="tracking-wider opacity-60">
+            Scroll to progress through timeline
+          </span>
+        </div>
+      </div>
+    </section>
   );
 }

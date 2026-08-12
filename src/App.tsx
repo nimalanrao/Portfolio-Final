@@ -10,47 +10,32 @@ import SectionFooter from "./components/SectionFooter";
 import AnalyticsTracker from "./components/AnalyticsTracker";
 import CustomCursor from "./components/CustomCursor";
 import SmoothScroll from "./components/SmoothScroll";
-import LanguageSelection from "./components/LanguageSelection";
 import LoadingScreen from "./components/LoadingScreen";
 import React from "react";
-import { useTranslation } from "react-i18next";
-import { AnimatePresence } from "framer-motion";
 
 export default function App() {
-  const { t } = useTranslation();
-  const [hasSelectedLanguage, setHasSelectedLanguage] = React.useState(false);
-
   return (
-    <AnimatePresence mode="wait">
-      {!hasSelectedLanguage ? (
-        <LanguageSelection key="lang-select" onSelect={() => setHasSelectedLanguage(true)} />
-      ) : (
-        <SmoothScroll key="main-app">
-          <main className="relative bg-black min-h-screen selection:bg-primary selection:text-black font-almarai overflow-x-hidden text-primary-cream">
-            {/* Cinematic Vignette */}
-            <div className="vignette" />
-            
-            {/* Background Systems */}
-            <CustomCursor />
-            <LoadingScreen />
-            <AnalyticsTracker />
-      <ProgressScroll />
-      <Navbar />
+    <SmoothScroll>
+      <main className="relative bg-black min-h-screen selection:bg-primary selection:text-black font-almarai overflow-x-clip text-primary-cream">
+        {/* Cinematic Vignette */}
+        <div className="vignette" />
+        
+        {/* Background Systems */}
+        <CustomCursor />
+        <LoadingScreen />
+        <AnalyticsTracker />
+        <ProgressScroll />
+        <Navbar />
 
-      {/* Sections */}
-      <SectionHero />
-      <AboutScrollDemo />
-      <SectionExpertise />
-      <SectionDevWorkflow />
-      <SectionProjects />
-      <SectionExperienceTimeline />
-
-
-      <SectionFooter />
-
+        {/* Sections */}
+        <SectionHero />
+        <AboutScrollDemo />
+        <SectionExpertise />
+        <SectionDevWorkflow />
+        <SectionProjects />
+        <SectionExperienceTimeline />
+        <SectionFooter />
       </main>
     </SmoothScroll>
-      )}
-    </AnimatePresence>
   );
 }

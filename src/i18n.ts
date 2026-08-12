@@ -111,14 +111,20 @@ i18n
           lang_malay: "Malay (Fluent)",
           lang_tamil: "Tamil (Intermediate)",
           select_language: "Select Language",
-          choose_experience: "Choose Your Experience",
           footer_desc: "Digital creative building high-end web experiences.",
           exp_ecommerce: "E-commerce Specialist & Online Seller",
           timeline_ecommerce_desc: "Managed end-to-end online store operations across major platforms including Shopee, TikTok, and Lazada.",
           exp_ecommerce_pt1: "Managed multi-platform store operations",
           exp_ecommerce_pt2: "Optimized product listings and SEO",
           exp_ecommerce_pt3: "Handled customer engagement and service",
-          exp_ecommerce_pt4: "Coordinated inventory and logistics"
+          exp_ecommerce_pt4: "Coordinated inventory and logistics",
+          exp_hardware_admin: "Hardware Store Administrator & Operations Specialist",
+          timeline_hardware_desc: "Managing end-to-end retail store operations: issuing Delivery Orders (DOs) and Invoices, managing petty cash and cash drawers, counter sales, operating AutoCount Accounting & POS software, and managing floor inventory merchandising.",
+          exp_hardware_pt1: "Issued Delivery Orders (DOs) and billing Invoices",
+          exp_hardware_pt2: "Managed petty cash, register balancing, and counter sales",
+          exp_hardware_pt3: "Operated AutoCount Accounting & AutoCount POS systems",
+          exp_hardware_pt4: "Handled direct customer inquiries and sales service",
+          exp_hardware_pt5: "Managed floor merchandising and shelf inventory stock"
         }
       },
       ms: {
@@ -226,7 +232,14 @@ i18n
           exp_ecommerce_pt1: "Menguruskan operasi kedai pelbagai platform",
           exp_ecommerce_pt2: "Mengoptimumkan senarai produk dan SEO",
           exp_ecommerce_pt3: "Mengendalikan interaksi dan khidmat pelanggan",
-          exp_ecommerce_pt4: "Menyelaras inventori dan logistik"
+          exp_ecommerce_pt4: "Menyelaras inventori dan logistik",
+          exp_hardware_admin: "Pentadbir Kedai Perkakas & Pakar Operasi",
+          timeline_hardware_desc: "Menguruskan operasi kedai runcit dari awal hingga akhir: mengeluarkan Pesanan Penghantaran (DO) dan Invois, menguruskan wang tunai kecil dan kaunter, jualan kaunter, mengendalikan perisian AutoCount POS & Perakaunan, dan mengurus inventori rak.",
+          exp_hardware_pt1: "Mengeluarkan Pesanan Penghantaran (DO) dan Invois",
+          exp_hardware_pt2: "Menguruskan wang tunai kecil dan imbangan kaunter",
+          exp_hardware_pt3: "Mengendalikan sistem AutoCount Accounting & POS",
+          exp_hardware_pt4: "Mengendalikan jualan dan perkhidmatan pelanggan",
+          exp_hardware_pt5: "Menyusun inventori stok dan rak kedai"
         }
       },
       zh: {
@@ -313,7 +326,7 @@ i18n
           workflow_devops: "开发与部署",
           workflow_devops_desc: "版本控制和部署工作流。",
           workflow_devops_micro: "快速发布，保持稳定。",
-          timeline_barista_desc: "在保持准确性和卓越客户体验的同时，提供快节奏的服务。",
+          timeline_barista_desc: "在保持准确性的同时提供快节奏服务。",
           timeline_bridge: "培养了速度、精准度和客户至上的思维——现在应用于打造无缝的数字体验。",
           timeline_webdev_role: "自由职业网页开发人员与数字创意人",
           timeline_webdev_desc: "构建并管理一家专注于转化、品牌和流畅 UX 的高端美发沙龙网站。",
@@ -335,7 +348,14 @@ i18n
           exp_ecommerce_pt1: "管理多平台商店运营",
           exp_ecommerce_pt2: "优化产品列表和 SEO",
           exp_ecommerce_pt3: "处理客户互动与服务",
-          exp_ecommerce_pt4: "协调库存与物流"
+          exp_ecommerce_pt4: "协调库存与物流",
+          exp_hardware_admin: "五金店行政管理员与运营专家",
+          timeline_hardware_desc: "管理端到端零售门店运营：开具送货单(DO)和发票、管理零用金与柜台结账、柜台销售、操作 AutoCount POS 和 AutoCount 财务软件，以及管理货架库存整理。",
+          exp_hardware_pt1: "开具送货单(DO)与账单发票",
+          exp_hardware_pt2: "管理零用金、收银台结账与柜台销售",
+          exp_hardware_pt3: "操作 AutoCount 财务软件与 AutoCount POS 系统",
+          exp_hardware_pt4: "处理直接客户咨询与销售服务",
+          exp_hardware_pt5: "管理货架陈列与商品库存整理"
         }
       }
     }
